@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">FIndFalcon</string>
+    <string name="find_falcon">Find Falcon</string>
+    <string name="time_taken">Time Taken :</string>
+    <string name="zero">0</string>
+    <string name="hours">Hours</string>
+    <string name="select_space_ship">Select space ship</string>
+    <string name="select">Select</string>
+    <string name="reset">Reset</string>
+</resources>

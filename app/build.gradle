@@ -1,0 +1,86 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'androidx.navigation.safeargs'
+    id 'kotlin-parcelize'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    namespace 'com.traktez.findfalcon'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.traktez.findfalcon"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+    buildFeatures {
+        dataBinding = true
+        viewBinding = true
+        buildConfig = true
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.10.1'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.7.2'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.7.2'
+    def gson = '2.9.0'
+    def retrofit = "2.9.0"
+    def okhttp = '4.9.1'
+    def coroutineAdapter = '0.9.2'
+    def coroutine = '1.6.4'
+    def coroutineLifecycle = '2.6.2'
+    def hilt = '2.46'
+
+    //retrofit and gson
+    implementation "com.squareup.retrofit2:retrofit:$retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit"
+    implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$coroutineAdapter"
+    implementation "com.google.code.gson:gson:$gson"
+
+    //network
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp"
+    implementation "com.squareup.okhttp3:okhttp:$okhttp"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutine"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:$coroutine"
+
+    //coroutine
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:${coroutine}"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:${coroutine}"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:${coroutine}"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:${coroutineLifecycle}"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:${coroutineLifecycle}"
+
+    //hilt
+    implementation "com.google.dagger:hilt-android:${hilt}"
+    kapt ("com.google.dagger:hilt-android-compiler:${hilt}")
+    kapt("androidx.hilt:hilt-compiler:1.0.0")
+
+
+}
